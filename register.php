@@ -1,6 +1,8 @@
 <?php
 
-<?php
+require_once "inc/functions.php";
+session_start();
+
 if (!empty($_POST)) {
 
     $errors = array();
@@ -41,13 +43,17 @@ if (!empty($_POST)) {
         $req->execute([$_POST['username'], $_POST['email'], $password, $token]);
         $user_id = $pdo->lastInsertId();
         mail($_POST['email'], 'Confirmation de votre compte', "Afin de valider votre compte merci de cliquer sur ce lien \n\n http://localhost/ludotheque/confirm.php?id=$user_id&token=$token");
-        header('Location: confirm.php');
+        $_SESSION['flash']['success'] = "Votre compte a bien été créer";
+        header('Location: confirm.php?id='.$user_id.'&token='.$token);
         exit();
 
     }
 }
 ?>
 
+
+<?php
+require_once "inc/header.php";?>
 <h1>S'inscrire</h1>
 
 <?php if(!empty($errors)) :?>
@@ -89,4 +95,4 @@ if (!empty($_POST)) {
 </div>
 
 <?php
-require_once "footer.php"?>
+require_once "inc/footer.php"?>
