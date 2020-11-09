@@ -11,7 +11,7 @@ if(!empty($_POST)){
         $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
         require_once 'inc/db.php';
         $pdo-> prepare('UPDATE users SET password =? WHERE id =?')->execute([$password, $user_id]);
-        $_SESSION['flash']['succes'] = "Votre mot de passe a bien été mis à";
+        $_SESSION['flash']['success'] = "Votre mot de passe a bien été mis à jour";
     }
 }
 

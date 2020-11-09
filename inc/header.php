@@ -34,13 +34,13 @@ if (session_status() == PHP_SESSION_NONE) {
             <a class="nav-link" href="index.php">Accueil <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="jeux.php">Jeux</a>
+            <a class="nav-link active" href="jeux.php">Jeux</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="blu-ray.php">DVD/ Blu-ray</a>
+            <a class="nav-link active" href="blu-ray.php">DVD/ Blu-ray</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link disabled" href="disques.php">Disques</a>
+            <a class="nav-link active" href="disques.php">Disques</a>
           </li>
         </ul>
 
